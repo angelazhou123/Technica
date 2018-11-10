@@ -1,0 +1,25 @@
+{
+  "name": "technica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "clarifai.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelazhou123/Technica.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angelazhou123/Technica/issues"
+  },
+  "homepage": "https://github.com/angelazhou123/Technica#readme",
+  "dependencies": {
+    "browserify": "^16.2.3",
+    "clarifai": "^2.9.0",
+    "express": "^4.16.4",
+    "node": "^11.0.0"
+  }
+}

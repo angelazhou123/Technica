@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href = "image_upload.css">
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js">
+
+        const app = new Clarifai.App({
+            apiKey: 'cd0eed6d5e594d9a8d534d4da07dfa61'
+        });
+        
+        function lookUp() {
+            app.models.predict(Clarifai.GENERAL_MODEL, myFile).then(
+                function (response) {
+                    console.log(response);
+                },
+                function (err) {
+                    console.error(err);
+                }
+            );
+        }
+    </script>
 </head>
 <body>
 <div class="file-upload">
@@ -20,8 +37,11 @@
             <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
         </div>
     </div>
+    <button onclick="lookUp()">Look Up</button>
 </div>
 </body>
-<script src = "image_upload.js" type="text/javascript"></script>
+<script src = "module.js" type="text/javascript"></script>
+<!--<script src="bundle.js" type="text/javascript"></script>-->
+
 </html>
 

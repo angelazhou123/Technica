@@ -4,6 +4,11 @@
 <title>Toy Donation Map</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059" />
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,37 +17,6 @@ body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
 <body>
-<!--
-<nav id="section-menu">
-  <ul></ul>
-</nav>
-<section id="section-one" class="section scroll-item" title="One">
-  <div class="inner">
-    <h2>One</h2>
-  </div>
-</section>
-<section id="section-two" class="section scroll-item" title="Two">
-  <div class="inner">
-    <h2>Two</h2>
-  </div>
-</section>
-<section id="section-three" class="section scroll-item" title="Three">
-  <div class="inner">
-    <h2>Three</h2>
-  </div>
-</section>
-<section id="section-four" class="section scroll-item" title="Four">
-  <div class="inner">
-    <h2>Four</h2>
-  </div>
-</section>
-<section id="section-five" class="section scroll-item" title="Five">
-  <div class="inner">
-    <h2>Five</h2>
-  </div>
-</section>
-<script type="text/javascript" src="script.js"></script>
- -->
 
 <!-- Navbar -->
 <nav id="section-menu">
@@ -65,26 +39,11 @@ body {font-family: "Lato", sans-serif}
     <section id="section-five" class="section scroll-item" title="Five">
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DONATIONS</a>
      </section>
-    <!-- <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-        <a href="#" class="w3-bar-item w3-button">Extras</a>
-        <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div>
-    </div> -->
+
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
 
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<!-- <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TOUR</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
-</div>
- -->
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
@@ -132,34 +91,6 @@ body {font-family: "Lato", sans-serif}
         <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
       </div>
     </div>
-<!--     <head>
-  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-  <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
-  type="text/javascript" charset="utf-8"></script>
-  <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
-  type="text/javascript" charset="utf-8"></script>
-  </head>
-  <body>
-  <div style="width: 640px; height: 480px" id="mapContainer"></div>
-  <script>
-    // Initialize the platform object:
-    var platform = new H.service.Platform({
-    'app_id': 'uYTJoL6kulRYgT3TqfX0',
-    'app_code': 'aBzZJjo3uKoMOIYuW1YixQ'
-    });
-
-    // Obtain the default map types from the platform object
-    var maptypes = platform.createDefaultLayers();
-
-    // Instantiate (and display) a map object:
-    var map = new H.Map(
-    document.getElementById('mapContainer'),
-    maptypes.normal.map,
-    {
-      zoom: 10,
-      center: { lng: 95.71, lat: 37.09}
-    });
-  </script> -->
   </div>
 
   <!-- The Tour Section -->
@@ -187,10 +118,6 @@ function moveMapToUS(map){
   map.setCenter({lat:39.381266, lng:-97.922211});
   map.setZoom(4);
 }
-
-
-
-
 
 /**
  * Boilerplate map initialization code starts below:
@@ -237,6 +164,105 @@ map.addObject(marker5);
 map.addObject(marker6);
 // Now use the map as required...
 moveMapToUS(map);
+
+/* Install the client from NPM
+
+npm install clarifai
+
+// Require the client
+
+const Clarifai = require('clarifai');
+
+// initialize with your api key. This will also work in your browser via http://browserify.org/
+
+const app = new Clarifai.App({
+ apiKey: 'cd0eed6d5e594d9a8d534d4da07dfa61'
+});*/
+
+/**
+ * Creates a new marker and adds it to a group
+ * @param {H.map.Group} group       The group holding the new marker
+ * @param {H.geo.Point} coordinate  The location of the marker
+ * @param {String} html             Data associated with the marker
+ */
+
+function addMarkerToGroup(group, coordinate, html) {
+  var marker = new H.map.Marker(coordinate, {icon: icon });
+  // add custom data to the marker
+  marker.setData(html);
+  group.addObject(marker);
+}
+
+/**
+ * Add two markers showing the position of Liverpool and Manchester City football clubs.
+ * Clicking on a marker opens an infobubble which holds HTML content related to the marker.
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function addInfoBubble(map) {
+  var group = new H.map.Group();
+
+  map.addObject(group);
+
+  // add 'tap' event listener, that opens info bubble, to the group
+  group.addEventListener('tap', function (evt) {
+    // event target is the marker itself, group is a parent event target
+    // for all objects that it contains
+    var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
+      // read custom data
+      content: evt.target.getData()
+    });
+    // show info bubble
+    ui.addBubble(bubble);
+  }, false);
+
+  addMarkerToGroup(group, {lat:53.439, lng:-2.221},
+    '<div><a href=\'http://www.mcfc.co.uk\' >Manchester City</a>' +
+    '</div><div >City of Manchester Stadium<br>Capacity: 48,000</div>');
+
+  addMarkerToGroup(group, {lat:53.430, lng:-2.961},
+    '<div ><a href=\'http://www.liverpoolfc.tv\' >Liverpool</a>' +
+    '</div><div >Anfield<br>Capacity: 45,362</div>');
+
+}
+
+/**
+ * Boilerplate map initialization code starts below:
+ */
+
+// initialize communication with the platform
+var platform = new H.service.Platform({
+  app_id: 'devportal-demo-20180625',
+  app_code: '9v2BkviRwi9Ot26kp2IysQ',
+  useHTTPS: true
+});
+var pixelRatio = window.devicePixelRatio || 1;
+var defaultLayers = platform.createDefaultLayers({
+  tileSize: pixelRatio === 1 ? 256 : 512,
+  ppi: pixelRatio === 1 ? undefined : 320
+});
+
+// initialize a map - this map is centered over Europe
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.normal.map,{
+  center: {lat: 53.430, lng: -2.961},
+  zoom: 7,
+  pixelRatio: pixelRatio
+});
+
+// MapEvents enables the event system
+// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// create default UI with layers provided by the platform
+var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+// Now use the map as required...
+addInfoBubble(map);
+
+
+
+
+
   </script>
 </body>
       <!-- <h2 class="w3-wide w3-center">TOUR DATES</h2>

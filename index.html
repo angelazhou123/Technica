@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<link rel="icon" href="teddy_bear_icon.png" type="image/png" sizes="16x16">
+<title>Toy Donation Map</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -11,7 +12,7 @@ body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
 <body>
-<!-- 
+<!--
 <nav id="section-menu">
   <ul></ul>
 </nav>
@@ -50,7 +51,7 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <section id="section-one" class="section scroll-item" title="One">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" 
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
     href="javascript:void(0)" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <section id="section-one" class="section scroll-item" title="One">
     <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
@@ -65,7 +66,7 @@ body {font-family: "Lato", sans-serif}
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DONATIONS</a>
      </section>
     <!-- <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
         <a href="#" class="w3-bar-item w3-button">Merchandise</a>
         <a href="#" class="w3-bar-item w3-button">Extras</a>
@@ -92,21 +93,21 @@ body {font-family: "Lato", sans-serif}
     <img src="/w3images/la.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Los Angeles</h3>
-      <p><b>We had the best time playing at Venice Beach!</b></p>   
+      <p><b>We had the best time playing at Venice Beach!</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
     <img src="/w3images/ny.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>New York</h3>
-      <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
+      <p><b>The atmosphere in New York is lorem ipsum.</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
     <img src="/w3images/chicago.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Chicago</h3>
-      <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
+      <p><b>Thank you, Chicago - A night we won't forget.</b></p>
     </div>
   </div>
 
@@ -176,13 +177,13 @@ body {font-family: "Lato", sans-serif}
 <body>
   <div id="map" style="width: 100%; height: 400px; background: grey" />
   <script  type="text/javascript" charset="UTF-8" >
-    
+
 /**
  * Moves the map to display over Berlin
  *
  * @param  {H.Map} map      A HERE Map instance within the application
  */
-function moveMapToBerlin(map){
+function moveMapToUS(map){
   map.setCenter({lat:39.381266, lng:-97.922211});
   map.setZoom(4);
 }
@@ -218,9 +219,14 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Create the default UI components
 var ui = H.ui.UI.createDefault(map, defaultLayers);
+var icon = new H.map.Icon('graphics/markerHouse.png');
+// Create a marker using the previously instantiated icon:
+var marker = new H.map.Marker({ lat: 39.381266, lng: -97.922211}, { icon: icon });
 
+// Add the marker to the map:
+map.addObject(marker);
 // Now use the map as required...
-moveMapToBerlin(map);
+moveMapToUS(map);
   </script>
 </body>
       <!-- <h2 class="w3-wide w3-center">TOUR DATES</h2>
@@ -267,8 +273,8 @@ moveMapToBerlin(map);
   <!-- Ticket Modal -->
   <div id="ticketModal" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal w3-center w3-padding-32"> 
-        <span onclick="document.getElementById('ticketModal').style.display='none'" 
+      <header class="w3-container w3-teal w3-center w3-padding-32">
+        <span onclick="document.getElementById('ticketModal').style.display='none'"
        class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
         <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
       </header>
@@ -310,7 +316,7 @@ moveMapToBerlin(map);
       </div>
     </div>
   </div>
-  
+
 <!-- End Page Content -->
 </div>
 
@@ -440,12 +446,12 @@ function carousel() {
     var i;
     var x = document.getElementsByClassName("mySlides");
     for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
+       x[i].style.display = "none";
     }
     myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 4000);    
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 4000);
 }
 
 // Used to toggle the menu on small screens when clicking on the menu button
@@ -453,7 +459,7 @@ function myFunction() {
     var x = document.getElementById("navDemo");
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
-    } else { 
+    } else {
         x.className = x.className.replace(" w3-show", "");
     }
 }
